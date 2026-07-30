@@ -270,3 +270,65 @@ esp_err_t LIS2DH12_read_accel(lis2dh12_dev_s accel, lis2dh12_output_s *output) {
 
     return ESP_OK;
 }
+
+
+lis2dh12_dev_s LIS2DH12_default_config(i2c_master_dev_handle_t dev_handle) {
+    lis2dh12_dev_s accel = {
+        .config = {
+            .reg0 = {
+                .sdo_pu_disc = 0,
+            },
+            .reg1 = {
+                .odr = LIS2DH12_ODR_FREQ_1HZ_MODE,
+                .lpen = 0,
+                .xen = 1,
+                .yen = 1,
+                .zen = 1,
+            },
+            .reg2 = {
+                .hpm = LIS2DH12_HPM_NORMAL_RESET_MODE,
+                .hpcf = 0,
+                .fds = 0,
+                .hpclick = 0,
+                .hp_ia1 = 0,
+                .hp_ia2 = 0,
+            },
+            .reg3 = {
+                .i1_click = 0,
+                .i1_ia1 = 0,
+                .i1_ia2 = 0,
+                .i1_zyxda = 0,
+                .i1_wtm = 0,
+                .i1_overrun = 0,
+            },
+            .reg4 = {
+                .bdu = 1,
+                .ble = 0,
+                .fs = LIS2DH12_FS_2G,
+                .hr = 0,
+                .st = LIS2DH12_ST_NORMAL_MODE,
+                .sim = 0,
+            },
+            .reg5 = {
+                .boot = 0,
+                .fifo_en = 0,
+                .lir_int1 = 0,
+                .lir_int2 = 0,
+                .d4d_int1 = 0,
+                .d4d_int2 = 0,
+            },
+            .reg6 = {
+                .i2_click = 0,
+                .i2_ia1 = 0,
+                .i2_ia2 = 0,
+                .i2_boot = 0,
+                .i2_act = 0,
+                .int_polarity = 0,
+            }
+        },
+
+        .device_handle = dev_handle,
+    };
+
+    return accel;
+}

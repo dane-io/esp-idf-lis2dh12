@@ -37,3 +37,4 @@ typedef struct lis2dh12_output_struct {
 
 esp_err_t LIS2DH12_write_ctrl_regs(lis2dh12_dev_s accel);
 esp_err_t LIS2DH12_read_accel(lis2dh12_dev_s accel, lis2dh12_output_s *output);
+lis2dh12_dev_s LIS2DH12_default_config(i2c_master_dev_handle_t dev_handle);
