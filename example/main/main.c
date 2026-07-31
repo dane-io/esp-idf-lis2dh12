@@ -10,9 +10,9 @@
 #include "lis2dh12.h"
 
 #define I2C_PORT         I2C_NUM_0
-#define I2C_SDA          GPIO_NUM_21
-#define I2C_SCL          GPIO_NUM_22
-#define I2C_FREQUENCY_HZ 400000
+#define I2C_SDA          GPIO_NUM_10
+#define I2C_SCL          GPIO_NUM_11
+#define I2C_FREQUENCY_HZ 100000
 #define LIS2DH12_ADDR    0x19
 
 static const char TAG[] = "lis2dh12_example";
